@@ -1,0 +1,31 @@
+body {
+  height: 100%;
+  width: auto;
+  margin: 0;
+}
+
+.outer-cage {
+  background-color: #633030;
+  height: 95vh;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1em solid rgba(255, 255, 255, 0.5);
+}
+
+.cage {
+  background-color: #a86b6b;
+  height: 500px;
+  width: 1000px;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+img {
+  height: 200px;
+  width: auto;
+}
