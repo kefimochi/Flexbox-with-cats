@@ -5,27 +5,36 @@ body {
 }
 
 .outer-cage {
-  background-color: #633030;
-  height: 95vh;
+  background-color: #7c4444;
+  height: 100vh;
   width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1em solid rgba(255, 255, 255, 0.5);
+  /* background-image: radial-gradient(
+    circle,
+    #f3d9cf,
+    #f0c8be,
+    #e2978e,
+    #c56e70,
+    #a1384a
+  ); */
 }
 
 .cage {
-  background-color: #a86b6b;
+  background-color: #f1dfd8;
   height: 500px;
   width: 1000px;
   flex-wrap: wrap;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  border: 3px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.25),
+    0 0 4rem 0px rgba(100, 100, 100, 0.15);
 }
 
 img {
   height: 200px;
   width: auto;
+  border: 2.5px solid black;
 }
