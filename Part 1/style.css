@@ -1,27 +1,14 @@
 body {
-  height: 100%;
-  width: auto;
-  margin: 0;
-}
-
-.outer-cage {
   background-color: #7c4444;
   height: 100vh;
   width: auto;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-image: radial-gradient(
-    circle,
-    #f3d9cf,
-    #f0c8be,
-    #e2978e,
-    #c56e70,
-    #a1384a
-  ); */
 }
 
-.cage {
+.box {
   background-color: #f1dfd8;
   height: 500px;
   width: 1000px;
