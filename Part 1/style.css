@@ -1,21 +1,23 @@
 body {
   background-color: #7c4444;
+  margin: 0;
+}
+
+.outer-container {
   height: 100vh;
   width: auto;
-  margin: 0;
-  display: flex;
+  display:flex; 
   align-items: center;
   justify-content: center;
 }
 
-.box {
+.cat-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #f1dfd8;
   height: 500px;
   width: 1000px;
-  flex-wrap: wrap;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
   box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.25),
     0 0 4rem 0px rgba(100, 100, 100, 0.15);
 }
