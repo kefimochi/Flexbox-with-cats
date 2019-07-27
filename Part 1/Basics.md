@@ -36,11 +36,11 @@ If you thought about trying to limit cats' space, you were correct! Just like in
 
 ## Setting up a Default Box
 
-Keeping that in mind, lets set up our HTML. Right now it is important to notice that `cats`(3 images) were already placed in a `box`(div with a class of `cat-box`). Notice an added class of a `cat-box` on the `div` container, it is there so we could manipulate it later with CSS. You might wonder why are they all gathered in one place, well, it's time to introduce some kitten logic!
+Keeping that in mind, lets set up our HTML. Right now it is important to notice that `cats`(3 images) were already placed in a `box`(div with a class of `cat-box`). You might wonder why are they all gathered in one place, well, it's time to introduce some kitten logic!
 
 {% codepen https://codepen.io/KateEfimova/pen/NQxNVp default-tab=result %}
 
-You see— as their default behavior, cats _love_ to cuddle. Especially considering that those kittens are in an unfamiliar environment where they were just placed seconds ago after ruining an entire apartment. They're not sure how to act, so they would just always stay close next to each other in the top left corner, warming each other up and giving an occasional bite from time to time.
+You see— as their default behavior, cats _love_ to cuddle. Especially considering that those kittens are in an unfamiliar environment where they were just placed seconds ago after ruining an entire apartment. They're not sure how to act, so they would just always stay close next to each other in the top left corner, warming each other up and feeling safe.
 
 ![All cat images are inside of a div container and are aligned in the top left corner](https://thepracticaldev.s3.amazonaws.com/i/gpa56eyvjawy3zy42y1o.png)
 
@@ -48,26 +48,58 @@ You see— as their default behavior, cats _love_ to cuddle. Especially consider
 
 ## Introducing Flexbox
 
-Now that all three kittens are preset in the box, it's time to have some fun and begin manipulations! Cats generally consider themselves to be of a high esteem, so in order for them to obey, we'll have to give a command of `display: flex;` to the box. Someone might ask: why not give it to every single cat individually instead? Well, that is because the box has even a higher ranking than cats since from the beginning it was restricting them! And cats — being proud aristocrats — _only_ listen to higher authority. Nothing will happen if you'll try to add `display: flex;` to any of the kittens.
+Now that all three kittens are preset in the box, it's time to have some fun and begin manipulations! Cats generally consider themselves to be of high esteem, so in order for them to obey, we'll have to give a command of `display: flex;` to the box kittens are in. Someone might wonder, "why not give it to every single cat individually instead?" Well, this is because the box holds higher authority over cats due to restricting the space they can move in! And cats — being proud aristocrats — _only_ listen to higher authority. Nothing will happen if you'll try to add `display: flex;` to any of the cat images; they're very stubborn.
 
-Let's pretend that a perfectionist friend comes over to your apartment, and wants to align all kittens and the box according to the center of that room. There are two directions we'll have to align them in: horizontal and vertical. Here's a well-done visual representation of the axis:
+What display flex will do is tell cat images to position themselves in a row and start listening to other commands. As you just thought, they were originally positioned in a row, so the only difference that will be noticed is a lack of space between pictures.
+
+![On the left there's a small space between pictures of cats vs on the right there's no space between cat pictures](https://thepracticaldev.s3.amazonaws.com/i/g1ovqqyv19e7vxvwemda.png)
+
+<figcaption>On the left there's a small space between pictures of cats vs on the right there's no space between cat pictures due to added `display: flex;`</figcaption>
+
+Now, let's pretend that a perfectionist friend comes over to your apartment, and wants to align all kittens and the box according to the center of that room. There are two directions we'll have to align them in: horizontal and vertical. Here's a well-done visual representation of the axis:
 
 ![Cross(x) vs main(y) Axis when it comes to web development](https://mdn.mozillademos.org/files/15631/align5.png)
 
 <figcaption>Cross(x) vs main(y) Axis when it comes to web development</figcaption>
 
-### Aligning by Y-axis
+First, let's align them according to y-axis by attaching `align-items: center;` to the `.cat-box`. Then, let's also position them correctly on x-axis by adding `justify-content: center;`
 
-![Cross(x) vs main(y) Axis when it comes to web development](https://thepracticaldev.s3.amazonaws.com/i/1fe1y0tiu2ir8c56latc.png)
+![Cats that are aligned centrally on the y-axis](https://thepracticaldev.s3.amazonaws.com/i/1fe1y0tiu2ir8c56latc.png)
 
-<figcaption>Cross(x) vs main(y) Axis when it comes to web development</figcaption>
+<figcaption>Cats that are aligned centrally on the y-axis</figcaption>
+![Cats that are aligned centrally on both y-axis and x-axis](https://thepracticaldev.s3.amazonaws.com/i/rpw3nrm0gu7o6cl08iks.png)
+<figcaption>Cats that are aligned centrally on both y-axis and x-axis</figcaption>
 
-At this point, our `cat-box` class has these CSS properties:
+At this point, these CSS properties were added to `.cat-box`:
+
+<pre>
+  display: flex;
+  align-items: center;
+  justify-content: center;
+</pre>
+
+As you have probably noticed, even though cats are now aligned centrally, the box holding them is still not where it needs to be. The perfectionist friend gets upset and, not trusting you with such an "_important_" responsibility anymore, starts to mess with cat positioning himself.
+
+Here's what he gets by trying to align all containers on the `body` of CSS by attaching the same properties we just attached to `.cat-box`
+
+![Despite using same properties on the `body`, the box only gets aligned centrally according to x-axis](https://thepracticaldev.s3.amazonaws.com/i/n2kvatihe14xrwyv9rw8.png)
+
+<figcaption>Despite using same properties on the `body`, the box only gets aligned centrally according to x-axis</figcaption>
+
+What he doesn't yet realize is that all furniture and other items like Nintendo Switch and MacBook Pro are suddenly centered in the apartment too, which is definitely an unwanted behavior! It is generally considered a bad practice to attach flexbox properties to the body. So in order to align both kittens _and_ the box to the center of our screens, we'll have to create another `<div>` with a class of `.outer-container`. Why do we need it?
+
+![A MacBook on the left of kittens and Nintendo Switch on the right of the kittens get aligned centrally on y-axis](https://thepracticaldev.s3.amazonaws.com/i/luue5r1h4yn4tc5o0k90.png)
+
+<figcaption>A MacBook on the left of kittens and Nintendo Switch on the right of the kittens get aligned centrally on y-axis</figcaption>
+
+Outer box can dictate the behavior to it's children, or in other words, any of elements inside of it will be aligned according to the properties given to the `.outer-container`. In our case the only element inside of it is an inner box with a class of `.cat-box`.
+
+Since the outer box can restrict the inner box with a class of `.cat-box`, it holds authority over the behavior of any elements inside. It's always one level deep, so no matter how much an outer box can manipulate an inner box, it won't be able to give any commands to the cats.
 
 <img src="https://thepracticaldev.s3.amazonaws.com/i/bzr47frhmg7w17i22gw9.png"  alt="A black text divider" height="50%" width="50%">
 
 ## Conclusion
 
-Hopefully an analogy of using `cats and boxes` helped you to better grasp concepts of flexbox. All terminology was on purpose simplified to focus solely on the important stuff: building and understanding. Please feel free to continue researching flexbox on your own time if you got interested in the subject. In addition, I'd love to hear your thoughts on Part 1: what did I do well as well as what could have been done better?
+Hopefully an analogy of using `cats and boxes` helped you to grasp concepts of flexbox better. All terminology was on purpose simplified to focus solely on the important stuff: building and understanding. Please feel free to continue researching flexbox on your own time, if you got interested in the subject. In addition, I'd love to hear your thoughts on Part 1: what did go well as well as what could have been done better? Do keep in mind that it is my first ever article written!
 
 <center>~ Thank you for reading! ~</center>
