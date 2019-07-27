@@ -86,15 +86,15 @@ Here's what he gets by trying to align all containers on the `body` of CSS by at
 
 <figcaption>Despite using same properties on the `body`, the box only gets aligned centrally according to x-axis</figcaption>
 
-What he doesn't yet realize is that all furniture and other items like Nintendo Switch and MacBook Pro are suddenly centered in the apartment too, which is definitely an unwanted behavior! It is generally considered a bad practice to attach flexbox properties to the body. So in order to align both kittens _and_ the box to the center of our screens, we'll have to create another `<div>` with a class of `.outer-container`. Why do we need it?
+What he doesn't yet realize is that all furniture and other items like Nintendo Switch and MacBook Pro were suddenly centered in the apartment too, which is definitely an unwanted behavior! It is generally considered a bad practice to attach flexbox properties to the body. So in order to align both kittens _and_ the box to the center of our screens, we'll have to create another `<div>` with a class of `.outer-container` and wrap it around our existing box. Why do we need that?
 
 ![A MacBook on the left of kittens and Nintendo Switch on the right of the kittens get aligned centrally on y-axis](https://thepracticaldev.s3.amazonaws.com/i/luue5r1h4yn4tc5o0k90.png)
 
 <figcaption>A MacBook on the left of kittens and Nintendo Switch on the right of the kittens get aligned centrally on y-axis</figcaption>
 
-Outer box can dictate the behavior to it's children, or in other words, any of elements inside of it will be aligned according to the properties given to the `.outer-container`. In our case the only element inside of it is an inner box with a class of `.cat-box`.
+Outer box can dictate the behavior of it's children. Or, in other words, any of the elements inside of the `.outer-container` will be aligned according to the properties given. In our case the only element inside of it is an inner box with a class of `.cat-box`.
 
-Since the outer box can restrict the inner box with a class of `.cat-box`, it holds authority over the behavior of any elements inside. It's always one level deep, so no matter how much an outer box can manipulate an inner box, it won't be able to give any commands to the cats.
+Do keep in mind that manipulations are **always** one level deep! If you haven't noticed the pattern yet: we wanted to align kittens => gave a command to their closest box, desired to manipulate that same box => created a container outside of it that wraps the whole content. You would not be able to control cats from the `.outer-container`.
 
 <img src="https://thepracticaldev.s3.amazonaws.com/i/bzr47frhmg7w17i22gw9.png"  alt="A black text divider" height="50%" width="50%">
 
