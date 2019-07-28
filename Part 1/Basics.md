@@ -6,9 +6,9 @@ description: The first part of "Flexbox with Cats" series of tutorials covering 
 cover_image: https://github.com/kefimochi/Flexbox-with-cats/blob/master/karina-vorozheeva-rW-I87aPY5Y-unsplash.jpg?raw=true
 ---
 
-Everyone loves cats, right? They are adorable fluffy little beings that enjoy smashing things and not obeying anyone. Well, in this series we'll make an assumption that suddenly they will listen to all commands given the magical phrase, `display: flex;`. "Understanding Flexbox with Cats" will use the analogy of `cats and boxes` to teach concepts like the CSS box model, flexbox positioning, and some valuable tips on the use of containers(aka "boxes", aka "divs"). Please keep in mind that this series assumes that a reader already has some basic understanding of HTML and CSS functionality.
+Everyone loves cats, right? They are adorable fluffy little beings that enjoy smashing things and not obeying anyone. Well, in this series we'll make an assumption that suddenly they will listen to all commands given the magical phrase, `display: flex;`. "Understanding Flexbox with Cats" will use the analogy of `cats and boxes` to teach concepts like the CSS box model, flexbox positioning, and provide some valuable tips on the use of containers. Please keep in mind that this series assumes that a reader already has some basic understanding of HTML and CSS.
 
-In part one, we will mainly focus on a reader's thorough understanding of how flexbox positioning works with multiple containers. Covering margins, borders, paddings, relative width & height, as well as flex properties like `flex-direction`, `align-self`, and `justify-content`.
+In part one, we will mainly focus on a reader's thorough understanding of how flexbox positioning works with multiple containers. This part is for two types of people: those who never truly understood flexbox and those who love reading how someone can creatively use an analogy when connecting two seemingly unrelated things.
 
 <center>~ Please enjoy this article full of kitten logic! ~</center>
 <img src="https://github.com/kefimochi/Flexbox-with-cats/blob/master/MyCat.png?raw=true" height="200" width="200" alt="An illustration of a black cat staring at you">
@@ -48,7 +48,7 @@ You see— as their default behavior, cats _love_ to cuddle. Especially consider
 
 ## Introducing Flexbox
 
-Now that all three kittens are preset in the box, it's time to have some fun and begin manipulations! Cats generally consider themselves to be of high esteem, so in order for them to obey, we'll have to give a command of `display: flex;` to the box kittens are in. Someone might wonder, "why not give it to every single cat individually instead?" Well, this is because the box holds higher authority over cats due to restricting the space they can move in! And cats — being proud aristocrats — _only_ listen to higher authority. Nothing will happen if you'll try to add `display: flex;` to any of the cat images; they're very stubborn.
+Cats generally consider themselves to be of high esteem, so in order for them to obey, we'll have to give a command of `display: flex;` to the box kittens are in. Someone might wonder, "why not give it to every single cat individually instead?" Well, this is because the box holds higher authority over cats due to restricting the space they can move in! And cats — being proud aristocrats — _only_ listen to higher authority. Nothing will happen if you'll try to add `display: flex;` to any of the cat images; they're very stubborn (More on the `why` later, it is related to `thinking outside of the box`! _pun intended_)
 
 What display flex will do is tell cat images to position themselves in a row and start listening to other commands. As you just thought, they were originally positioned in a row, so the only difference that will be noticed is a lack of space between pictures.
 
@@ -86,11 +86,21 @@ Here's what he gets by trying to align all containers on the `body` of CSS by at
 
 <figcaption>Despite using same properties on the `body`, the box only gets aligned centrally according to x-axis</figcaption>
 
-What he doesn't yet realize is that all furniture and other items like Nintendo Switch and MacBook Pro were suddenly centered in the apartment too, which is definitely an unwanted behavior! It is generally considered a bad practice to attach flexbox properties to the body. So in order to align both kittens _and_ the box to the center of our screens, we'll have to create another `<div>` with a class of `.outer-container` and wrap it around our existing box. Why do we need that?
+What he doesn't yet realize is that all furniture and other items like Nintendo Switch and MacBook Pro were suddenly centered in the apartment too, which is definitely an unwanted behavior! It is generally considered a bad practice to attach flexbox properties to the body.
 
 ![A MacBook on the left of kittens and Nintendo Switch on the right of the kittens get aligned centrally on y-axis](https://thepracticaldev.s3.amazonaws.com/i/luue5r1h4yn4tc5o0k90.png)
 
 <figcaption>A MacBook on the left of kittens and Nintendo Switch on the right of the kittens get aligned centrally on y-axis</figcaption>
+
+So in order to align both kittens _and_ the box to the center of our screens, we'll have to create another `<div>` with a class of `.outer-container` and wrap it around the existing content. Why do we need that? There's no other way to manipulate the container where cat images are currently in without it, let's dive deeper into why by looking at an example!
+
+Take a look at this dev.to component that can be found on their main page. On the right side is a demonstration of how many containers(boxes) are currently used to make it work, notice how they're nested — meaning inside each other. Light color that looks similar to a highlighter is there to portray inner padding of each container.
+
+![Dev.to components with navigation links is broken down to several colored boxes](https://thepracticaldev.s3.amazonaws.com/i/0yn25gekow9k33tjrxnl.png)
+
+<figcaption>Dev.to components with navigation links is broken down into several colored boxes</figcaption>
+
+The reason why all links in a dark blue container are positioned in a column and not in a row — unlike the container that holds all icons — is because they were given a flexbox property of `flex-direction: column;`. If this property would be given to the purple container that holds all elements, than all icons
 
 Outer box can dictate the behavior of it's children. Or, in other words, any of the elements inside of the `.outer-container` will be aligned according to the properties given. In our case the only element inside of it is an inner box with a class of `.cat-box`.
 
