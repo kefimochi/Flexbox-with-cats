@@ -11,7 +11,7 @@ Everyone loves cats, right? They are adorable fluffy little beings that enjoy sm
 In part one, we will mainly focus on a reader's thorough understanding of how flexbox positioning works with multiple containers. This part is for two types of people: those who never truly understood flexbox and those who love reading how someone can creatively use an analogy when connecting two seemingly unrelated things.
 
 <center>~ Please enjoy this article full of kitten logic! ~</center>
-<img src="https://github.com/kefimochi/Flexbox-with-cats/blob/master/MyCat.png?raw=true" height="200" width="200" alt="An illustration of a black cat staring at you">
+<center><img src="https://github.com/kefimochi/Flexbox-with-cats/blob/master/MyCat.png?raw=true" height="200" width="200" alt="An illustration of a black cat staring at you"></center>
 
 ### "Flexbox with Cats" Contests
 
@@ -22,11 +22,11 @@ In part one, we will mainly focus on a reader's thorough understanding of how fl
 - Part 3: Advanced Flexbox and CSS
   - Covering everything from using flexbox in order to make a website responsive all the way to how to create your own designs. We'll also get to look at real-world implementations of everything learned throughout this series.
 
-<img src="https://thepracticaldev.s3.amazonaws.com/i/bzr47frhmg7w17i22gw9.png"  alt="A black text divider" height="50%" width="50%">
+<center><img src="https://thepracticaldev.s3.amazonaws.com/i/bzr47frhmg7w17i22gw9.png"  alt="A black text divider" height="50%" width="50%"></center>
 
 ## Introduction to "Cats and Boxes"
 
-![Cat's face looking deeply into your soul from inside of a box](https://thepracticaldev.s3.amazonaws.com/i/04tkt4ec6pmgu5zxv731.jpg)
+<center>![Cat's face looking deeply into your soul from inside of a box](https://thepracticaldev.s3.amazonaws.com/i/04tkt4ec6pmgu5zxv731.jpg)</center>
 
 <figcaption>Cat's face looking deeply into your soul from inside of a box</figcaption>
 
@@ -58,7 +58,7 @@ What display flex will do is tell cat images to position themselves in a row and
 
 Now, let's pretend that a perfectionist friend comes over to your apartment, and wants to align all kittens and the box according to the center of that room. There are two directions we'll have to align them in: horizontal and vertical. Here's a well-done visual representation of the axis:
 
-![Cross(x) vs main(y) Axis when it comes to web development](https://mdn.mozillademos.org/files/15631/align5.png)
+<center>![Cross(x) vs main(y) Axis when it comes to web development](https://mdn.mozillademos.org/files/15631/align5.png)</center>
 
 <figcaption>Cross(x) vs main(y) Axis when it comes to web development</figcaption>
 
@@ -106,8 +106,8 @@ If you haven't noticed the pattern yet: we wanted to align kittens => gave a com
 
 Keeping that in mind, the reason why all anchors in a dark blue container are positioned in a column is because they were given a flexbox property of `flex-direction: column;` through inheriting it from their purple parent container. Take a look at what happens to this dev.to component if flexbox direction is changed to row on the purple container. Can you still recognize the same boxes without lines and highlights? 😉
 
-<img src="https://thepracticaldev.s3.amazonaws.com/i/zsmqxhuzmi79w3h0qlv6.png"  alt="Components look broken when flex-direction of the most outer container is changed to row" height="50%" width="50%">
-<figcaption>Components look broken when flex-direction of the most outer container is changed to row</figcaption>
+<center><img src="https://thepracticaldev.s3.amazonaws.com/i/zsmqxhuzmi79w3h0qlv6.png"  alt="Components look broken when flex-direction of the most outer container is changed to row" height="50%" width="50%">
+<figcaption>Components look broken when flex-direction of the most outer container is changed to row</figcaption></center>
 
 Going back to the visual example with cats, it now supposed to make sense why we need an extra wrapping container: otherwise there's no way to control the box that holds the cats. All there's left to do is add an extra `<div>` on HTML, give it a class, declare flexbox central positioning and add a _limited_ size on that class. There are ways of making a container change it's size according to the stretching and squishing of content inside of it but we'll be diving into it more in Part 2 and 3 of this series. You're free to take a look at the finished code on this CodePen:
 
@@ -119,11 +119,11 @@ Going back to the visual example with cats, it now supposed to make sense why we
 
 We can have some fun playing with various others `justify-content`, here's a visual representation of how it changes things using this gif:
 
-![A gif showing properties like `justify-content` flex-start, flex-end, space-evenly and space-between](https://thepracticaldev.s3.amazonaws.com/i/d1kvha5eo6zlu2zmchyi.gif)
+<center>![A gif showing properties like `justify-content` flex-start, flex-end, space-evenly and space-between](https://thepracticaldev.s3.amazonaws.com/i/d1kvha5eo6zlu2zmchyi.gif)</center>
 
 <figcaption>A gif showing properties like `justify-content` flex-start, flex-end, space-evenly and space-between</figcaption>
 
-<img src="https://thepracticaldev.s3.amazonaws.com/i/bzr47frhmg7w17i22gw9.png"  alt="A black text divider" height="50%" width="50%">
+<center><img src="https://thepracticaldev.s3.amazonaws.com/i/bzr47frhmg7w17i22gw9.png"  alt="A black text divider" height="50%" width="50%"></center>
 
 ## Conclusion
 
