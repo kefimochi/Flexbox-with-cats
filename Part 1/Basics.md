@@ -1,6 +1,6 @@
 ---
 title: Understanding Flexbox with Cats: Part 1 Basics
-published: false
+published: true
 tags: flexbox, css, cats, tutorial
 description: The first part of "Flexbox with Cats" series of tutorials covering how to work with containers and positioning. This tutorial series will use a metaphor of cats and boxes to teach Flexbox.
 cover_image: https://github.com/kefimochi/Flexbox-with-cats/blob/master/karina-vorozheeva-rW-I87aPY5Y-unsplash.jpg?raw=true
@@ -16,7 +16,7 @@ In part one, we will mainly focus on a reader's thorough understanding of how fl
 ### "Flexbox with Cats" Contests
 
 - [Part 1: Flexbox basics](https://dev.to/kefimochi/understanding-flexbox-with-cats-part-1-1nah-temp-slug-8615884?preview=c73c442aaa9309c1cde8720742d43900fd95cf84461ad1cd51e51aac752140bc22e5682dcae9b0d080323f28eaf4c926a9752cdbfcbce5ad141b3b94)
-  - Beginner-friendly introduction to CSS's box model, positioning of divs, and covering concepts such as `margin vs padding vs border`.
+  - Beginner-friendly introduction to CSS's box model and positioning of divs
 - Part 2: Think in "boxes"
   - An article describing how to recognize containers("divs") when working with a provided design and how to implement the desired positioning.
 - Part 3: Advanced Flexbox and CSS
@@ -92,7 +92,7 @@ What he doesn't yet realize is that all furniture and other items like Nintendo 
 
 <figcaption>A MacBook on the left of kittens and Nintendo Switch on the right of the kittens get aligned centrally on y-axis</figcaption>
 
-So in order to align both kittens _and_ the box to the center of our screens, we'll have to create another `<div>` with a class of `.outer-container` and wrap it around the existing content. Why do we need that? There's no other way to manipulate the container where cat images are currently in without it, let's dive deeper into why by breaking down an example!
+So in order to align both kittens _and_ the box to the center of our screens, we'll have to create another `<div>` with a class of `.outer-container` and wrap it around the existing content. Why do we need that? Let's dive deeper into why by breaking down an example!
 
 Take a look at this dev.to component that can be found on their main page. On the right side is a demonstration of how many containers(boxes) are currently used to make it work. Notice how they're nested — meaning inside each other. Light color that looks similar to a highlighter is there to portray inner padding of each container.
 
@@ -109,14 +109,25 @@ Keeping that in mind, the reason why all anchors in a dark blue container are po
 <img src="https://thepracticaldev.s3.amazonaws.com/i/zsmqxhuzmi79w3h0qlv6.png"  alt="Components look broken when flex-direction of the most outer container is changed to row" height="50%" width="50%">
 <figcaption>Components look broken when flex-direction of the most outer container is changed to row</figcaption>
 
-Going back to the visual example with cats, it now supposed to make sense why we need an extra wrapping container: otherwise there's no way to control the container that holds the cats. All there's left to do is add an extra `<div>` on HTML, give it a class, declare flexbox central positioning and add a _limited_ size on that class. There are ways of making a container change it's size according to the stretching and squishing of content inside of it but we'll be diving into it more in Part 2.
+Going back to the visual example with cats, it now supposed to make sense why we need an extra wrapping container: otherwise there's no way to control the box that holds the cats. All there's left to do is add an extra `<div>` on HTML, give it a class, declare flexbox central positioning and add a _limited_ size on that class. There are ways of making a container change it's size according to the stretching and squishing of content inside of it but we'll be diving into it more in Part 2 and 3 of this series. You're free to take a look at the finished code on this CodePen:
 
-{% codepen https://codepen.io/KateEfimova/pen/JgbEGr?editors=0100 %}
+{% codepen https://codepen.io/KateEfimova/pen/JgbEGr default-tab=result %}
+
+![Both cats and the box are positing in the center of the screen](https://thepracticaldev.s3.amazonaws.com/i/y3ajsb89jf9igo06s0iy.png)
+
+<figcaption>Both cats and the box are positing in the center of the screen</figcaption>
+
+We can have some fun playing with various others `justify-content`, here's a visual representation of how it changes things using this gif:
+
+![A gif showing properties like `justify-content` flex-start, flex-end, space-evenly and space-between](https://thepracticaldev.s3.amazonaws.com/i/d1kvha5eo6zlu2zmchyi.gif)
+
+<figcaption>A gif showing properties like `justify-content` flex-start, flex-end, space-evenly and space-between</figcaption>
 
 <img src="https://thepracticaldev.s3.amazonaws.com/i/bzr47frhmg7w17i22gw9.png"  alt="A black text divider" height="50%" width="50%">
 
 ## Conclusion
 
-Hopefully an analogy of using `cats and boxes` helped you to grasp concepts of flexbox better. All terminology was on purpose simplified to focus solely on the important stuff: building and understanding. Please feel free to continue researching flexbox on your own time, if you got interested in the subject. In addition, I'd love to hear your thoughts on Part 1: what did go well as well as what could have been done better? Do keep in mind that it is my first ever article written!
+Hopefully an analogy of using `cats and boxes` helped you to grasp concepts of flexbox better. All terminology was on purpose simplified to focus solely on the importance of understanding. In addition, I'd love to hear your thoughts on Part 1: what did go well as well as what could have been done better? Do keep in mind that it is my _first ever_ article written! Here's a repository with markdown of this article, you're welcome to create any and all pull requests!
+https://github.com/kefimochi/Flexbox-with-cats/blob/master/Part%201/Basics.md
 
 <center>~ Thank you for reading! ~</center>
