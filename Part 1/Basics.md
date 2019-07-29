@@ -15,7 +15,7 @@ In part one, we will mainly focus on a reader's thorough understanding of how fl
 
 ### "Flexbox with Cats" Contests
 
-- [Part 1: Flexbox basics](https://dev.to/kefimochi/understanding-flexbox-with-cats-part-1-1nah-temp-slug-8615884?preview=c73c442aaa9309c1cde8720742d43900fd95cf84461ad1cd51e51aac752140bc22e5682dcae9b0d080323f28eaf4c926a9752cdbfcbce5ad141b3b94)
+- [Part 1: Flexbox basics](https://dev.to/kefimochi/understanding-flexbox-with-cats-part-1-basics-1532)
   - Beginner-friendly introduction to CSS's box model and positioning of divs
 - Part 2: Think in "boxes"
   - An article describing how to recognize containers("divs") when working with a provided design and how to implement the desired positioning.
@@ -72,11 +72,11 @@ First, let's align them according to y-axis by attaching `align-items: center;` 
 
 At this point, these CSS properties were added to `.cat-box`:
 
-<pre>
-  display: flex;
-  align-items: center;
-  justify-content: center;
-</pre>
+```css
+display: flex;
+align-items: center;
+justify-content: center;
+```
 
 As you have probably noticed, even though cats are now aligned centrally, the box holding them is still not where it needs to be. The perfectionist friend gets upset and, not trusting you anymore with such an "_important_" responsibility, starts to mess with cat positioning himself.
 
@@ -100,11 +100,17 @@ Take a look at this dev.to component that can be found on their main page. On th
 
 <figcaption>Dev.to components with navigation links is broken down into several colored boxes</figcaption>
 
-All flexbox manipulations are **always** one layer deep, meaning it only affects closest child boxes. For example, the purple container can only manipulate three inner containers but not any `<h>` or `<a>` elements inside of them. Whereas the the dark blue container has an ability to do something with it's anchors by attaching flexbox into itself(notice that `display: flex` would be attached to the _container_ when you want to manipulate elements inside of it).
+All flexbox manipulations are **always** one layer deep, meaning it only affects closest child boxes. For example, the purple container shown above can only manipulate the three inner containers inside of it. But any elements inside those three containers, such as the headings or anchor tags inside of them, can't be manipulated. Whereas the the dark blue container, that contains the actual key links, has the ability to do something with its anchor tags by making it a flex container (notice that `display: flex` would be attached to the _container_ when you want to manipulate elements inside of it).
 
-If you haven't noticed the pattern yet: we wanted to align kittens => gave a command to their closest outer box; desired to manipulate that same box => created a container outside of it that wraps the whole content. You would not be able to control cats from the `.outer-container`. Thus, try to remember a phrase **think outside of the box** since if you want to manipulate certain elements, you need to find the closest outer container in order to assign flexbox properties to it.
+If you haven't noticed the pattern yet:
 
-Keeping that in mind, the reason why all anchors in a dark blue container are positioned in a column is because they were given a flexbox property of `flex-direction: column;` through inheriting it from their purple parent container. Take a look at what happens to this dev.to component if flexbox direction is changed to row on the purple container. Can you still recognize the same boxes without lines and highlights? 😉
+- We wanted to align the kittens (Finding the elements to be aligned)
+- We gave a command to their closest outer box named `.cat-box` to align the kittens inside of it (Picking the closest outer box and turning it into a flex container)
+- Created a container named `.outer-container` outside of it that wraps the whole content (To align the `.cat-box` and to avoid making the `body` a flex container).
+
+You would not be able to control cats from the `.outer-container` since the closest box to it is the `.cat-box`. Thus, try to remember the phrase **think outside of the box** since if you want to manipulate certain elements, you need to find the closest outer container in order to assign flexbox properties to it.
+
+Keeping that in mind, the reason why all anchors in a dark blue container are positioned in a column is because they were given a flexbox property of `flex-direction: column;` through inheriting it from their purple parent container. Take a look at what happens to this dev.to component if flexbox direction is changed to `row` on the purple container. Can you still recognize the same boxes without lines and highlights? 😉
 
 <center><img src="https://thepracticaldev.s3.amazonaws.com/i/zsmqxhuzmi79w3h0qlv6.png"  alt="Components look broken when flex-direction of the most outer container is changed to row" height="50%" width="50%">
 <figcaption>Components look broken when flex-direction of the most outer container is changed to row</figcaption></center>
@@ -119,15 +125,15 @@ Going back to the visual example with cats, it now supposed to make sense why we
 
 We can have some fun playing with various others `justify-content`, here's a visual representation of how it changes things using this gif:
 
-<center>![A gif showing properties like `justify-content` flex-start, flex-end, space-evenly and space-between](https://thepracticaldev.s3.amazonaws.com/i/d1kvha5eo6zlu2zmchyi.gif)</center>
-
-<figcaption>A gif showing properties like `justify-content` flex-start, flex-end, space-evenly and space-between</figcaption>
+<center>![A gif showing different property values of justify-content such as flex-start, flex-end, space-evenly and space-between](https://thepracticaldev.s3.amazonaws.com/i/d1kvha5eo6zlu2zmchyi.gif)</center>
+<figcaption>A gif showing different property values of justify-content such as flex-start, flex-end, space-evenly and space-between</figcaption>
 
 <center><img src="https://thepracticaldev.s3.amazonaws.com/i/bzr47frhmg7w17i22gw9.png"  alt="A black text divider" height="50%" width="50%"></center>
 
 ## Conclusion
 
 Hopefully an analogy of using `cats and boxes` helped you to grasp concepts of flexbox better. All terminology was on purpose simplified to focus solely on the importance of understanding. In addition, I'd love to hear your thoughts on Part 1: what did go well as well as what could have been done better? Do keep in mind that it is my _first ever_ article written! Here's a repository with markdown of this article, you're welcome to create any and all pull requests!
-https://github.com/kefimochi/Flexbox-with-cats/blob/master/Part%201/Basics.md
+
+[https://github.com/kefimochi/Flexbox-with-cats](https://github.com/kefimochi/Flexbox-with-cats/blob/master/Part%201/Basics.md)
 
 <center>~ Thank you for reading! ~</center>
