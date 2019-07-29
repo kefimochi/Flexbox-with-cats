@@ -78,7 +78,7 @@ At this point, these CSS properties were added to `.cat-box`:
   justify-content: center;
 </pre>
 
-As you have probably noticed, even though cats are now aligned centrally, the box holding them is still not where it needs to be. The perfectionist friend gets upset and, not trusting you with such an "_important_" responsibility anymore, starts to mess with cat positioning himself.
+As you have probably noticed, even though cats are now aligned centrally, the box holding them is still not where it needs to be. The perfectionist friend gets upset and, not trusting you anymore with such an "_important_" responsibility, starts to mess with cat positioning himself.
 
 Here's what he gets by trying to align all containers on the `body` of CSS by attaching the same properties we just attached to `.cat-box`
 
@@ -92,19 +92,26 @@ What he doesn't yet realize is that all furniture and other items like Nintendo 
 
 <figcaption>A MacBook on the left of kittens and Nintendo Switch on the right of the kittens get aligned centrally on y-axis</figcaption>
 
-So in order to align both kittens _and_ the box to the center of our screens, we'll have to create another `<div>` with a class of `.outer-container` and wrap it around the existing content. Why do we need that? There's no other way to manipulate the container where cat images are currently in without it, let's dive deeper into why by looking at an example!
+So in order to align both kittens _and_ the box to the center of our screens, we'll have to create another `<div>` with a class of `.outer-container` and wrap it around the existing content. Why do we need that? There's no other way to manipulate the container where cat images are currently in without it, let's dive deeper into why by breaking down an example!
 
-Take a look at this dev.to component that can be found on their main page. On the right side is a demonstration of how many containers(boxes) are currently used to make it work, notice how they're nested — meaning inside each other. Light color that looks similar to a highlighter is there to portray inner padding of each container.
+Take a look at this dev.to component that can be found on their main page. On the right side is a demonstration of how many containers(boxes) are currently used to make it work. Notice how they're nested — meaning inside each other. Light color that looks similar to a highlighter is there to portray inner padding of each container.
 
 ![Dev.to components with navigation links is broken down to several colored boxes](https://thepracticaldev.s3.amazonaws.com/i/0yn25gekow9k33tjrxnl.png)
 
 <figcaption>Dev.to components with navigation links is broken down into several colored boxes</figcaption>
 
-The reason why all links in a dark blue container are positioned in a column and not in a row — unlike the container that holds all icons — is because they were given a flexbox property of `flex-direction: column;`. If this property would be given to the purple container that holds all elements, than all icons
+All flexbox manipulations are **always** one layer deep, meaning it only affects closest child boxes. For example, the purple container can only manipulate three inner containers but not any `<h>` or `<a>` elements inside of them. Whereas the the dark blue container has an ability to do something with it's anchors by attaching flexbox into itself(notice that `display: flex` would be attached to the _container_ when you want to manipulate elements inside of it).
 
-Outer box can dictate the behavior of it's children. Or, in other words, any of the elements inside of the `.outer-container` will be aligned according to the properties given. In our case the only element inside of it is an inner box with a class of `.cat-box`.
+If you haven't noticed the pattern yet: we wanted to align kittens => gave a command to their closest outer box; desired to manipulate that same box => created a container outside of it that wraps the whole content. You would not be able to control cats from the `.outer-container`. Thus, try to remember a phrase **think outside of the box** since if you want to manipulate certain elements, you need to find the closest outer container in order to assign flexbox properties to it.
 
-Do keep in mind that manipulations are **always** one level deep! If you haven't noticed the pattern yet: we wanted to align kittens => gave a command to their closest box, desired to manipulate that same box => created a container outside of it that wraps the whole content. You would not be able to control cats from the `.outer-container`.
+Keeping that in mind, the reason why all anchors in a dark blue container are positioned in a column is because they were given a flexbox property of `flex-direction: column;` through inheriting it from their purple parent container. Take a look at what happens to this dev.to component if flexbox direction is changed to row on the purple container. Can you still recognize the same boxes without lines and highlights? 😉
+
+<img src="https://thepracticaldev.s3.amazonaws.com/i/zsmqxhuzmi79w3h0qlv6.png"  alt="Components look broken when flex-direction of the most outer container is changed to row" height="50%" width="50%">
+<figcaption>Components look broken when flex-direction of the most outer container is changed to row</figcaption>
+
+Going back to the visual example with cats, it now supposed to make sense why we need an extra wrapping container: otherwise there's no way to control the container that holds the cats. All there's left to do is add an extra `<div>` on HTML, give it a class, declare flexbox central positioning and add a _limited_ size on that class. There are ways of making a container change it's size according to the stretching and squishing of content inside of it but we'll be diving into it more in Part 2.
+
+{% codepen https://codepen.io/KateEfimova/pen/JgbEGr?editors=0100 %}
 
 <img src="https://thepracticaldev.s3.amazonaws.com/i/bzr47frhmg7w17i22gw9.png"  alt="A black text divider" height="50%" width="50%">
 
